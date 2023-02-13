@@ -4,7 +4,7 @@ export interface IPlayerState {
   name: string;
   authority: number;
   combat: number;
-  trade: number;
+  tradeCoins: number;
   hand: ICardState[];
   discardPile: ICardState[];
   drawPile: ICardState[];
