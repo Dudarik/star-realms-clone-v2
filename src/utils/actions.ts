@@ -1,5 +1,5 @@
-import { ICardState } from '@/interfaces/ICardState';
-import { IPlayerState } from '@/interfaces/IPlayerState';
+import { ICardState } from '@/interfaces/';
+import { IPlayerState } from '@/interfaces/';
 
 export const drawCard = () => {};
 export const playCard = () => {};
