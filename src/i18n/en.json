@@ -1,0 +1,29 @@
+{
+    "titles": {
+        "landTitle": "STAR REALMS",
+        "roomTitle": "Room",
+        "rulesTitle": "Rules",
+        "aboutTitle": "About"
+    },
+    "modal": "Settings",
+    "buttons": {
+        "start": "Start",
+        "rules": "Rules",
+        "home": "Home",
+        "game": "Play",
+        "update": "Update",
+        "about": "About"
+    },
+    "checkbox": {
+        "theme": "Theme",
+        "language": "Language",
+        "sound": "Sound"
+    },
+    "langs": {
+        "eng": "English",
+        "rus": "Russian"
+    },
+    "cards": {
+        
+    }
+}

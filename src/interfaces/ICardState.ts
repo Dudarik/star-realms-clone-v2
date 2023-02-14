@@ -1,4 +1,4 @@
-import { EFraction } from '@/enums/EFraction';
+import type { EFraction } from "@/enums/EFraction";
 
 export interface Ability {
   name: string;

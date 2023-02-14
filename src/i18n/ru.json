@@ -1,0 +1,27 @@
+{
+    "titles": {
+        "landTitle": "Звёздные империи",
+        "roomTitle": "Комната",
+        "rulesTitle": "Правила",
+        "aboutTitle": "О проекте"
+    },
+    "modal": "Настройки",
+    "buttons": {
+        "start": "Старт",
+        "rules": "Правила",
+        "home": "Меню",
+        "game": "Играть",
+        "update": "Изменить",
+        "about": "О проекте"
+    },
+    "checkbox": {
+        "theme": "Тема",
+        "language": "Язык",
+        "sound": "Звук"
+    },
+    "langs": {
+        "eng": "Английский",
+        "rus": "Русский"
+    },
+    "rule": ""
+}

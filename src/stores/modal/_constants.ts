@@ -1,0 +1,1 @@
+const audio = new Audio('../../assets/sounds/space.mp3');
