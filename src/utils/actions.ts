@@ -23,7 +23,8 @@ export const buyCard = (
   tradeRow: ICardState[],
   player: IPlayerState,
   cardId: number,
-  forFree: boolean
+  forFree = false,
+  tooTopDeck = false
 ) => {
   const currentCard = tradeRow.find((card) => card.id === cardId);
 
@@ -37,7 +38,8 @@ export const buyCard = (
   }
   tradeRow.splice(currentCardArrId, 1, tradeDeck.pop() as ICardState);
 
-  player.discardPile.push(currentCard);
+  if (tooTopDeck) player.drawPile.push(currentCard);
+  else player.discardPile.push(currentCard);
 };
 
 export const playCard = (player: IPlayerState, cardId: number) => {
@@ -49,6 +51,7 @@ export const playCard = (player: IPlayerState, cardId: number) => {
     throw new Error(`Can't find card with id: ${currentCard.id} in player ${player.name} hand`);
   player.hand.splice(currentCardArrId, 1);
   player.playedCards.push(currentCard);
+  player.playedCardsToRender.push(currentCard);
 };
 
 export const discardCard = (player: IPlayerState, cardId: number) => {
@@ -79,8 +82,11 @@ export const attack = (source: IPlayerState, target: IAttackTarget) => {
 
 export const endTurn = (player: IPlayerState) => {
   //TODO: Надо оптимизировать, плохо проходить два раза фильтром по одному массиву
-  const ships = player.playedCards.filter((card) => !Object.prototype.hasOwnProperty.call(card, 'base'));
-  player.playedCards = player.playedCards.filter((card) => Object.prototype.hasOwnProperty.call(card, 'base'));
+  const filterBases = (card: ICardState) => Object.prototype.hasOwnProperty.call(card, 'base');
+  const ships = player.playedCards.filter((card) => !filterBases(card));
+
+  player.playedCards = player.playedCards.filter(filterBases);
+  player.playedCardsToRender = [...player.playedCards];
   player.discardPile.push(...ships);
 };
 

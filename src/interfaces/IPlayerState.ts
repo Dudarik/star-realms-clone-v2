@@ -5,8 +5,11 @@ export interface IPlayerState {
   authority: number;
   combat: number;
   tradeCoins: number;
+  countCardsToDiscard: number;
+  incraseShipsAttack: number;
   hand: ICardState[];
   discardPile: ICardState[];
   drawPile: ICardState[];
   playedCards: ICardState[];
+  playedCardsToRender: ICardState[];
 }
