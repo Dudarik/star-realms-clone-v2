@@ -1,11 +1,27 @@
+import { EFraction } from '@/enums/EFraction';
 import { ICardState } from '@/interfaces/';
 import { IPlayerState } from '@/interfaces/';
-import { arrayShuffle } from './helpers';
+import { ability } from './ability';
+import { arrayShuffle, isBase } from './helpers';
 
 export interface IAttackTarget {
   card?: ICardState;
   player?: IPlayerState;
 }
+
+export const getCountFractionCards = (cardPile: ICardState[], fraction: EFraction) =>
+  cardPile.filter((card) => card.fraction === fraction);
+
+export const playAllyAbility = (player: IPlayerState, card: ICardState) => {
+  const allyCards = getCountFractionCards(player.playedCardsToRender, card.fraction);
+
+  if (allyCards.length === 0) return;
+
+  if (allyCards.length === 1) {
+    // TODO: Доделать союзные свойства
+    // ability
+  }
+};
 
 export const drawCard = (player: IPlayerState) => {
   if (player.drawPile.length === 0) createNewPlayerDeck(player);
@@ -47,8 +63,10 @@ export const playCard = (player: IPlayerState, cardId: number) => {
   if (!currentCard) throw new Error(`Can't find card with id ${cardId} in player:${player.name} hand`);
 
   const currentCardArrId = player.hand.indexOf(currentCard);
+
   if (currentCardArrId === -1)
     throw new Error(`Can't find card with id: ${currentCard.id} in player ${player.name} hand`);
+
   player.hand.splice(currentCardArrId, 1);
   player.playedCards.push(currentCard);
   player.playedCardsToRender.push(currentCard);
@@ -82,10 +100,10 @@ export const attack = (source: IPlayerState, target: IAttackTarget) => {
 
 export const endTurn = (player: IPlayerState) => {
   //TODO: Надо оптимизировать, плохо проходить два раза фильтром по одному массиву
-  const filterBases = (card: ICardState) => Object.prototype.hasOwnProperty.call(card, 'base');
-  const ships = player.playedCards.filter((card) => !filterBases(card));
 
-  player.playedCards = player.playedCards.filter(filterBases);
+  const ships = player.playedCards.filter((card) => !isBase(card));
+
+  player.playedCards = player.playedCards.filter(isBase);
   player.playedCardsToRender = [...player.playedCards];
   player.discardPile.push(...ships);
 };
