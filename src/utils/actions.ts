@@ -2,6 +2,11 @@ import { ICardState } from '@/interfaces/';
 import { IPlayerState } from '@/interfaces/';
 import { arrayShuffle } from './helpers';
 
+export interface IAttackTarget {
+  card?: ICardState;
+  player?: IPlayerState;
+}
+
 export const drawCard = (player: IPlayerState) => {
   if (player.drawPile.length === 0) createNewPlayerDeck(player);
 
@@ -35,7 +40,16 @@ export const buyCard = (
   player.discardPile.push(currentCard);
 };
 
-export const playCard = () => {};
+export const playCard = (player: IPlayerState, cardId: number) => {
+  const currentCard = player.hand.find((card) => card.id === cardId);
+  if (!currentCard) throw new Error(`Can't find card with id ${cardId} in player:${player.name} hand`);
+
+  const currentCardArrId = player.hand.indexOf(currentCard);
+  if (currentCardArrId === -1)
+    throw new Error(`Can't find card with id: ${currentCard.id} in player ${player.name} hand`);
+  player.hand.splice(currentCardArrId, 1);
+  player.playedCards.push(currentCard);
+};
 
 export const discardCard = (player: IPlayerState, cardId: number) => {
   const cardToDiscard = player.hand.find((card) => card.id === cardId);
@@ -45,7 +59,29 @@ export const discardCard = (player: IPlayerState, cardId: number) => {
   player.discardPile.push(cardToDiscard);
 };
 
-export const attack = (power: number, player: IPlayerState) => {};
-export const endTurn = () => {};
+export const attack = (source: IPlayerState, target: IAttackTarget) => {
+  const card = target.card;
+  const player = target.player;
+
+  if (!(card && card.base) && !player) throw new Error('No target to attack!');
+
+  if (card && card.base) {
+    if (source.combat < card.base.health) throw new Error('Not enough combat to attack!');
+    else {
+      source.combat -= card.base.health;
+      card.base.health = 0;
+    }
+  } else if (player) {
+    player.authority -= source.combat;
+    source.combat = 0;
+  }
+};
+
+export const endTurn = (player: IPlayerState) => {
+  //TODO: Надо оптимизировать, плохо проходить два раза фильтром по одному массиву
+  const ships = player.playedCards.filter((card) => !Object.prototype.hasOwnProperty.call(card, 'base'));
+  player.playedCards = player.playedCards.filter((card) => Object.prototype.hasOwnProperty.call(card, 'base'));
+  player.discardPile.push(...ships);
+};
 
 // export const deckShuffle = (deck: ICardState[]) => {};
