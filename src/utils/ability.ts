@@ -69,6 +69,10 @@ export const ability: Record<string, (player: IPlayerState, value: number) => vo
     }
   },
 
+  // buyFree: (player: IPlayerState, count: number) => {
+  //   buyCard()
+  // }
+
   // buyCardPutTop: (
   //   tradeDeck: ICardState[],
   //   tradeRow: ICardState[],
