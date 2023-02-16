@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import ButtonLink from "@/components/ButtonLink.vue";
 // import { mapGetters, mapActions } from 'vuex'
+import { ref } from "vue";
+import { useFullscreen } from '@vueuse/core'
+const el = ref(null)
+const { toggle, isFullscreen } = useFullscreen(el)
 
 // const name = {
 //   data: {
@@ -28,7 +32,8 @@ import ButtonLink from "@/components/ButtonLink.vue";
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" ref="el">
+    <button @click="toggle">Fullscreen</button>
     <ButtonLink />
     <div class="page-title">
       <h2>{{ $t("titles.roomTitle") }}</h2>

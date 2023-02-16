@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import { ref, defineComponent, toRefs, reactive } from "vue";
 import ModalWindow from "@/components/modal/ModalWindow.vue";
 import { storeToRefs } from "pinia";
 import { useModal } from "@/stores";
+import { ref, defineComponent, toRefs, reactive } from "vue";
+import { useFullscreen } from '@vueuse/core'
 
-// const root = ref();
-// const state = reactive({
-//   fullscreen: false,
-// });
-// function toggle() {
-//   state.fullscreen = !state.fullscreen;
-// }
+const el = ref(null)
+const { toggle, isFullscreen } = useFullscreen(el)
 
 const { modalIsShow } = storeToRefs(useModal());
+
 </script>
 
 <template>
-  <fullscreen
-    v-model:fullscreen="fullscreen"
-    :teleport="teleport"
-    :page-only="pageOnly"
-  >
-    <div class="wrapper">
+    <div class="wrapper" ref="el">
       <kinesis-container class="container">
         <kinesis-element class="parallax-bg">
           <div class="parallax-bg" :strength="100" type="depth"></div>
@@ -31,9 +23,7 @@ const { modalIsShow } = storeToRefs(useModal());
         <div class="settings-btn" @click="modalIsShow = true">
           <modal-window />
         </div>
-        <button type="button" class="button" @click="toggle">
-          {{ fullscreen ? "exit fullscreen" : "request fullscreen" }}
-        </button>
+        <button @click="toggle">Fullscreen</button>
         <div class="title">
           <img src="../assets/Vector36.svg" alt="vector36" />
           <h1>{{ $t("titles.landTitle") }}</h1>
@@ -46,7 +36,6 @@ const { modalIsShow } = storeToRefs(useModal());
         </nav>
       </kinesis-container>
     </div>
-  </fullscreen>
 </template>
 
 <style lang="scss" scoped>
