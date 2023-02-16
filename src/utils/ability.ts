@@ -1,8 +1,11 @@
 import { ICardState, IPlayerState } from '@/interfaces';
-import { buyCard, drawCard } from './actions';
+import { drawCard } from './actions';
 import { getIdDamageAbility, isBase } from './helpers';
 
-export const ability = {
+export const ability: Record<
+  string,
+  ((player: IPlayerState, value: number) => void) | ((player: ICardState[], value: number) => void)
+> = {
   incraseAttackPower: (player: IPlayerState, power: number) => {
     player.combat += power;
   },
@@ -42,13 +45,14 @@ export const ability = {
     player.countCardsToDiscard = count;
   },
 
-  destroyCard: (fromState: ICardState[], cardsIds: number[]) => {
-    //Убираем карту из руки, стопки сброса или торгового ряда
-    for (let i = 0; i < cardsIds.length; i++) {
-      fromState = fromState.filter((card) => !cardsIds.includes(card.id));
-    }
+  destroyCard: (fromState: ICardState[], cardId: number) => {
+    //Уничтожаем карту из руки, стопки сброса или торгового ряда
+    fromState = fromState.filter((card) => cardId !== card.id);
   },
 
+  // destroyCard2: (player: IPlayerState, cardId: number) => {
+
+  // },
   shipsIncraseAttack: (player: IPlayerState, incrasePower: number) => {
     /*увеличиваем атаку корбалей на incrasePower*/
     player.playedCardsToRender.forEach((card) => {
@@ -61,17 +65,24 @@ export const ability = {
     });
   },
 
-  buyCardPutTop: (
-    tradeDeck: ICardState[],
-    tradeRow: ICardState[],
-    player: IPlayerState,
-    cardId: number,
-    forFree = false,
-    tooTopDeck = true
-  ) => {
-    //Кладем поверх drawPile
-    buyCard(tradeDeck, tradeRow, player, cardId, forFree, tooTopDeck);
+  putTopCards: (player: IPlayerState, count: number) => {
+    //Можете положить следующий купленный корабль(count),поверх вашей стопки сброса
+    for (let i = 0; i < count; i++) {
+      player.drawPile.push(player.discardPile.pop() as ICardState);
+    }
   },
+
+  // buyCardPutTop: (
+  //   tradeDeck: ICardState[],
+  //   tradeRow: ICardState[],
+  //   player: IPlayerState,
+  //   cardId: number,
+  //   forFree = false,
+  //   tooTopDeck = true
+  // ) => {
+  //   //Кладем поверх drawPile
+  //   buyCard(tradeDeck, tradeRow, player, cardId, forFree, tooTopDeck);
+  // },
 };
 
 // export const copyCard = (targetCard: ICardState) => {

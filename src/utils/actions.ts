@@ -18,8 +18,7 @@ export const playAllyAbility = (player: IPlayerState, card: ICardState) => {
   if (allyCards.length === 0) return;
 
   if (allyCards.length === 1) {
-    // TODO: Доделать союзные свойства
-    // ability
+    allyCards[0].allyAbility?.forEach((abil) => ability[abil.name](player, abil.value as number));
   }
 };
 
