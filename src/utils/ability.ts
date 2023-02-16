@@ -2,10 +2,7 @@ import { ICardState, IPlayerState } from '@/interfaces';
 import { drawCard } from './actions';
 import { getIdDamageAbility, isBase } from './helpers';
 
-export const ability: Record<
-  string,
-  ((player: IPlayerState, value: number) => void) | ((player: ICardState[], value: number) => void)
-> = {
+export const ability: Record<string, (player: IPlayerState, value: number) => void> = {
   incraseAttackPower: (player: IPlayerState, power: number) => {
     player.combat += power;
   },
@@ -45,9 +42,9 @@ export const ability: Record<
     player.countCardsToDiscard = count;
   },
 
-  destroyCard: (fromState: ICardState[], cardId: number) => {
+  destroyCard: (player: IPlayerState, cardId: number, fromState?: ICardState[]) => {
     //Уничтожаем карту из руки, стопки сброса или торгового ряда
-    fromState = fromState.filter((card) => cardId !== card.id);
+    if (fromState) fromState = fromState.filter((card) => cardId !== card.id);
   },
 
   // destroyCard2: (player: IPlayerState, cardId: number) => {

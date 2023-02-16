@@ -1,9 +1,10 @@
 import { EFraction } from '@/enums/EFraction';
-import { ICardState } from '@/interfaces';
+import type { ICardState } from '@/interfaces/ICardState';
 
 export const cards: ICardState[] = [
   {
     id: 1,
+    zoneId: 1,
     fraction: EFraction.Trade,
     name: 'Federation Shuttle',
     cost: 1,
@@ -27,6 +28,7 @@ export const cards: ICardState[] = [
 
   {
     id: 2,
+    zoneId: 1,
     fraction: EFraction.Trade,
     name: 'Cutter',
     cost: 2,
@@ -53,6 +55,7 @@ export const cards: ICardState[] = [
 
   {
     id: 100,
+    zoneId: 1,
     fraction: EFraction.Blob,
     name: 'Blob Fighter',
     cost: 1,

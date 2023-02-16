@@ -8,6 +8,7 @@ export interface Ability {
 
 export interface ICardState {
   id: number;
+  zoneId: number;
   fraction: EFraction;
   // Abilitys - можно использовать енум или массив
   // первичное свойство, например, дает деньги, жизни или урон.
