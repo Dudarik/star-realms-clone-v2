@@ -18,7 +18,7 @@ export const playAllyAbility = (player: IPlayerState, card: ICardState) => {
   if (allyCards.length === 0) return;
 
   if (allyCards.length === 1) {
-    allyCards[0].allyAbility?.forEach((abil) => ability[abil.name](player, abil.value as number));
+    allyCards[0].allyAbility?.ability.forEach((abil) => ability[abil.name](player, abil.value as number));
   }
 };
 
