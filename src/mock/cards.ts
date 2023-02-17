@@ -1,6 +1,79 @@
 import { EFraction } from '@/enums/EFraction';
 import type { ICardState } from '@/interfaces/ICardState';
 
+export const explorerDeck: ICardState[] = [
+  {
+    id: 2000,
+    zoneId: 1,
+    fraction: EFraction.Common,
+    name: 'Explorer',
+    cost: 2,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 2,
+        },
+      ],
+    },
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Common/Explorer.webp',
+    allAbylityPlayed: false,
+    countInGame: 2,
+  },
+];
+export const startDeckCards: ICardState[] = [
+  {
+    id: 1000,
+    zoneId: 1,
+    fraction: EFraction.Common,
+    name: 'Viper',
+    cost: 0,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 1,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Common/Viper.webp',
+    allAbylityPlayed: false,
+    countInGame: 2,
+  },
+  {
+    id: 1001,
+    zoneId: 1,
+    fraction: EFraction.Common,
+    name: 'Scout',
+    cost: 0,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 1,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Common/Scout.webp',
+    allAbylityPlayed: false,
+    countInGame: 8,
+  },
+];
 export const cards: ICardState[] = [
   {
     id: 1,
@@ -1232,7 +1305,7 @@ export const cards: ICardState[] = [
       ],
     },
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Trade_Bot.webp',
     allAbylityPlayed: false,
     countInGame: 3,
   },
@@ -1267,7 +1340,7 @@ export const cards: ICardState[] = [
       ],
     },
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Missile_Bot.webp',
     allAbylityPlayed: false,
     countInGame: 3,
   },
@@ -1301,7 +1374,7 @@ export const cards: ICardState[] = [
       ],
     },
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Supply_Bot.webp',
     allAbylityPlayed: false,
     countInGame: 3,
   },
@@ -1321,7 +1394,7 @@ export const cards: ICardState[] = [
       ],
     },
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Battle_Station.webp',
     allAbylityPlayed: false,
     countInGame: 2,
   },
@@ -1356,7 +1429,7 @@ export const cards: ICardState[] = [
     },
     description: `With the Blobs an ever presen danger, even the Cult's cargo carrying mechs bristle with firepower.`,
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Patrol_Mech.webp',
     allAbylityPlayed: false,
     countInGame: 2,
   },
@@ -1378,7 +1451,7 @@ export const cards: ICardState[] = [
   //   },
   //   description: `The Needle's ability to mimic other ships represents the pinnacle of Cult technology`,
   //   allyAbilityDone: false,
-  //   pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+  //   pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Stealth_Needle.webp',
   //   allAbylityPlayed: false,
   //   countInGame: 2,
   // },
@@ -1413,7 +1486,7 @@ export const cards: ICardState[] = [
       ],
     },
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Battle_Mech.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },
@@ -1447,7 +1520,7 @@ export const cards: ICardState[] = [
       ],
     },
     allyAbilityDone: false,
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Missile_Mech.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },
@@ -1473,7 +1546,7 @@ export const cards: ICardState[] = [
       isPost: true,
       health: 6,
     },
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Mech_World.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },
@@ -1498,7 +1571,7 @@ export const cards: ICardState[] = [
       isPost: true,
       health: 6,
     },
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Brain_World.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },
@@ -1524,7 +1597,7 @@ export const cards: ICardState[] = [
       isPost: true,
       health: 6,
     },
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Machine_Base.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },
@@ -1550,7 +1623,7 @@ export const cards: ICardState[] = [
       isPost: true,
       health: 6,
     },
-    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    pathToSprite: './src/assets/sprites_webp/desktop/Machine Cult/Junkyard.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },
