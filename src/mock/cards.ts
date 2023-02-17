@@ -1202,4 +1202,356 @@ export const cards: ICardState[] = [
     allAbylityPlayed: false,
     countInGame: 1,
   },
+  {
+    id: 300,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Trade Bot',
+    cost: 1,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 1,
+        },
+        {
+          name: 'destroyCard',
+          value: 1,
+          description: `You may scrap a card in your hand or discard pile`,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+
+  {
+    id: 301,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Missile Bot',
+    cost: 2,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+        {
+          name: 'destroyCard',
+          value: 1,
+          description: `You may scrap a card in your hand or discard pile`,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+  {
+    id: 302,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Supply Bot',
+    cost: 3,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 2,
+        },
+        {
+          name: 'destroyCard',
+          value: 1,
+          description: `You may scrap a card in your hand or discard pile`,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+  {
+    id: 303,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Battle Station',
+    cost: 3,
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 5,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 2,
+  },
+  {
+    id: 304,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Patrol Mech',
+    cost: 4,
+    primaryAbility: {
+      choseOne: true,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 3,
+        },
+        {
+          name: 'incraseAttackPower',
+          value: 5,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'destroyCard',
+          value: 1,
+          description: `You may scrap a card in your hand or discard pile`,
+        },
+      ],
+    },
+    description: `With the Blobs an ever presen danger, even the Cult's cargo carrying mechs bristle with firepower.`,
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 2,
+  },
+  // {
+  //   id: 305,
+  //   zoneId: 1,
+  //   fraction: EFraction.MachineCult,
+  //   name: 'Stealth Needle',
+  //   cost: 4,
+  //   primaryAbility: {
+  //     choseOne: false,
+  //     ability: [
+  //       {
+  //         name: 'copyCard',
+  //         value: 0,
+  //         description: `Copy another ship you've played this turn. Stealth Needle has that ship's faction in addition to Machine Cult`,
+  //       },
+  //     ],
+  //   },
+  //   description: `The Needle's ability to mimic other ships represents the pinnacle of Cult technology`,
+  //   allyAbilityDone: false,
+  //   pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+  //   allAbylityPlayed: false,
+  //   countInGame: 2,
+  // },
+
+  {
+    id: 306,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Battle Mech',
+    cost: 5,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 4,
+        },
+        {
+          name: 'destroyCard',
+          value: 1,
+          description: `You may scrap a card in your hand or discard pile`,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'drawCards',
+          value: 1,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+  {
+    id: 307,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Missile Mech',
+    cost: 6,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 6,
+        },
+        {
+          name: 'destroyBase',
+          value: 1,
+          description: `You may destroy target base`,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'drawCards',
+          value: 1,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+  {
+    // Не та абилка, что в оригинале
+    id: 308,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Mech World',
+    cost: 5,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    description: `This man-made planet is a galactic center for open source tech`,
+    allyAbilityDone: false,
+    base: {
+      isPost: true,
+      health: 6,
+    },
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+  {
+    id: 309,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Brain World',
+    cost: 8,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'scrapDrawCards',
+          value: 2,
+        },
+      ],
+    },
+    description: `The Machine Cult built these supercomputing space stations to tun every aspect of their society. Now they worship them as gods.`,
+    allyAbilityDone: false,
+    base: {
+      isPost: true,
+      health: 6,
+    },
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+
+  {
+    id: 310,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Machine Base',
+    cost: 7,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'drawScrapCardsFromHand',
+          value: 1,
+        },
+      ],
+    },
+    description: `The Machine Cult built these supercomputing space stations to tun every aspect of their society. Now they worship them as gods.`,
+    allyAbilityDone: false,
+    base: {
+      isPost: true,
+      health: 6,
+    },
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+
+  {
+    id: 311,
+    zoneId: 1,
+    fraction: EFraction.MachineCult,
+    name: 'Junkyard',
+    cost: 6,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'destroyCard',
+          value: 1,
+        },
+      ],
+    },
+    description: `This high-tech city is like a biihive: it looks chaotic, but vital work is bing done efficiently at a frinetic pace`,
+    allyAbilityDone: false,
+    base: {
+      isPost: true,
+      health: 6,
+    },
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
 ];

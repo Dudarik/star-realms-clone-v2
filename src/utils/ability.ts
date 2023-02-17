@@ -2,7 +2,10 @@ import { ICardState, IPlayerState } from '@/interfaces';
 import { drawCard } from './actions';
 import { getIdDamageAbility, isBase } from './helpers';
 
-export const ability: Record<string, (player: IPlayerState, value: number | number[]) => void> = {
+export const ability: Record<
+  string,
+  (player: IPlayerState, value: number | number[], fromState?: ICardState[]) => void
+> = {
   incraseAttackPower: (player, power) => {
     if (typeof power === 'number') player.combat += power;
   },
@@ -58,7 +61,24 @@ export const ability: Record<string, (player: IPlayerState, value: number | numb
   discardDrawCards: (player, cardsIds) => {
     if (Array.isArray(cardsIds) && cardsIds.length > 0) {
       ability.discardCards(player, cardsIds);
-      ability.drawCards(player, cardsIds);
+      ability.drawCards(player, cardsIds.length);
+    }
+  },
+
+  scrapDrawCards: (player, cardsIds, fromState?: ICardState[]) => {
+    if (Array.isArray(cardsIds)) {
+      for (const cardId of cardsIds) {
+        ability.destroyCard(player, cardId, fromState);
+      }
+      ability.drawCards(player, cardsIds.length);
+    }
+  },
+
+  drawScrapCardsFromHand: (player, cardId) => {
+    if (typeof cardId === 'number') {
+      ability.drawCards(player, 1);
+
+      ability.destroyCard(player, cardId, player.hand);
     }
   },
 
@@ -67,9 +87,6 @@ export const ability: Record<string, (player: IPlayerState, value: number | numb
     if (typeof cardId === 'number' && fromState) fromState = fromState.filter((card) => cardId !== card.id);
   },
 
-  // destroyCard2: (player: IPlayerState, cardId: number) => {
-
-  // },
   shipsIncraseAttack: (player, incrasePower) => {
     /*увеличиваем атаку корбалей на incrasePower*/
     if (typeof incrasePower === 'number') {
