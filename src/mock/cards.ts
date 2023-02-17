@@ -252,7 +252,7 @@ export const cards: ICardState[] = [
         },
       ],
     },
-    scrapAbilty: {
+    scrapAbility: {
       choseOne: false,
       ability: [
         {
@@ -289,7 +289,7 @@ export const cards: ICardState[] = [
         },
       ],
     },
-    scrapAbilty: {
+    scrapAbility: {
       choseOne: false,
       ability: [
         {
@@ -367,7 +367,7 @@ export const cards: ICardState[] = [
       choseOne: false,
       ability: [
         {
-          name: 'discardCards',
+          name: 'setDiscardCards',
           value: 1,
         },
       ],
@@ -396,7 +396,7 @@ export const cards: ICardState[] = [
         },
       ],
     },
-    scrapAbilty: {
+    scrapAbility: {
       choseOne: false,
       ability: [
         {
@@ -540,7 +540,7 @@ export const cards: ICardState[] = [
         },
       ],
     },
-    scrapAbilty: {
+    scrapAbility: {
       choseOne: false,
       ability: [
         {
@@ -610,7 +610,7 @@ export const cards: ICardState[] = [
         },
       ],
     },
-    scrapAbilty: {
+    scrapAbility: {
       choseOne: false,
       ability: [
         {
@@ -705,7 +705,7 @@ export const cards: ICardState[] = [
         },
       ],
     },
-    scrapAbilty: {
+    scrapAbility: {
       choseOne: false,
       ability: [
         {
@@ -770,6 +770,435 @@ export const cards: ICardState[] = [
     },
     allyAbilityDone: false,
     pathToSprite: './src/assets/sprites_webp/desktop/Blob/Blob_World.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+
+  {
+    id: 200,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Imperial Fighter',
+    cost: 1,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+        {
+          name: 'setDiscardCards',
+          value: 1,
+          description: 'Target opponent discards a card',
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Imperial_Fighter.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+  {
+    id: 201,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Imperial Frigate',
+    cost: 3,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 4,
+        },
+        {
+          name: 'setDiscardCards',
+          value: 1,
+          description: 'Target opponent discards a card',
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'drawCards',
+          value: 1,
+          description: 'Draw a card',
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Imperial_Frigate.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+  {
+    id: 202,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Survey Ship',
+    cost: 1,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 1,
+        },
+        {
+          name: 'drawCards',
+          value: 1,
+          description: 'Draw a card',
+        },
+      ],
+    },
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'setDiscardCards',
+          value: 1,
+          description: 'Target opponent discards a card',
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Survey_Ship.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+  {
+    id: 203,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Corvette',
+    cost: 2,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 1,
+        },
+        {
+          name: 'drawCards',
+          value: 1,
+          description: 'Draw a card',
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 1,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Corvette.webp',
+    allAbylityPlayed: false,
+    countInGame: 3,
+  },
+  {
+    id: 204,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Battlecruiser',
+    cost: 6,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 5,
+        },
+        {
+          name: 'drawCards',
+          value: 1,
+          description: 'Draw a card',
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'setDiscardCards',
+          value: 1,
+          description: 'Target opponent discards a card',
+        },
+      ],
+    },
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'drawCards',
+          value: 1,
+          description: 'Draw a card',
+        },
+        {
+          name: 'destroyBase',
+          value: 1,
+          description: 'You may destroy target base.',
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Battlecruiser.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+
+  {
+    id: 205,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Dreadnaught',
+    cost: 7,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 7,
+        },
+        {
+          name: 'drawCards',
+          value: 1,
+          description: 'Draw a card',
+        },
+      ],
+    },
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 5,
+        },
+      ],
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Dreadnaught.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+  {
+    id: 206,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Space Station',
+    cost: 4,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 2,
+        },
+      ],
+    },
+    scrapAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 4,
+        },
+      ],
+    },
+    base: {
+      isPost: true,
+      health: 4,
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Space_Station.webp',
+    allAbylityPlayed: false,
+    countInGame: 2,
+  },
+
+  {
+    id: 207,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Recycling Station',
+    cost: 4,
+    primaryAbility: {
+      choseOne: true,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 1,
+        },
+        {
+          name: 'discardDrawCards',
+          value: 0,
+          description: 'Or discard to two cards, then draw tham many cards',
+        },
+      ],
+    },
+    base: {
+      isPost: true,
+      health: 4,
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Recycling_Station.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+
+  {
+    // возможно надо отключить, не понятно как реализовать абилку.
+    id: 207,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Recycling Station',
+    cost: 4,
+    primaryAbility: {
+      choseOne: true,
+      ability: [
+        {
+          name: 'incraseCoins',
+          value: 1,
+        },
+        {
+          name: 'discardDrawCards',
+          value: 0,
+          description: 'Or discard to two cards, then draw tham many cards',
+        },
+      ],
+    },
+    base: {
+      isPost: true,
+      health: 4,
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Recycling_Station.webp',
+    allAbylityPlayed: false,
+    countInGame: 2,
+  },
+  {
+    id: 208,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'War World',
+    cost: 5,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 3,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 4,
+        },
+      ],
+    },
+    base: {
+      isPost: true,
+      health: 4,
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/War_World.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+  {
+    id: 209,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Royal Redoubt',
+    cost: 6,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'incraseAttackPower',
+          value: 3,
+        },
+      ],
+    },
+    allyAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'setDiscardCards',
+          value: 1,
+          description: 'Target opponent discard a card',
+        },
+      ],
+    },
+    base: {
+      isPost: true,
+      health: 6,
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Royal_Redoubt.webp',
+    allAbylityPlayed: false,
+    countInGame: 1,
+  },
+  {
+    id: 210,
+    zoneId: 1,
+    fraction: EFraction.StarEmpire,
+    name: 'Fleet HQ',
+    cost: 8,
+    primaryAbility: {
+      choseOne: false,
+      ability: [
+        {
+          name: 'shipsIncraseAttack',
+          value: 1,
+          description: `All of your ships get `,
+        },
+      ],
+    },
+    description: `When an imperial fleet goes into battle, it's usually coordinatd from afar by one of these mobile command centers.`,
+    base: {
+      isPost: false,
+      health: 8,
+    },
+    allyAbilityDone: false,
+    pathToSprite: './src/assets/sprites_webp/desktop/Star Empire/Fleet_HQ.webp',
     allAbylityPlayed: false,
     countInGame: 1,
   },

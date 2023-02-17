@@ -27,7 +27,7 @@ export interface ICardState {
   //Потому как, на одной карте может быть просто союзное свойство и двойное союзное свойство
   // doubleAllyAbility?: [];
   // утилизационное ствойство, работает когда отправлешь карту в утиль(выходит из игры)
-  scrapAbilty?: {
+  scrapAbility?: {
     choseOne: boolean;
     ability: Ability[];
   };
