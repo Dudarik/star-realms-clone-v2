@@ -2,71 +2,94 @@ import { ICardState, IPlayerState } from '@/interfaces';
 import { drawCard } from './actions';
 import { getIdDamageAbility, isBase } from './helpers';
 
-export const ability: Record<string, (player: IPlayerState, value: number) => void> = {
-  incraseAttackPower: (player: IPlayerState, power: number) => {
-    player.combat += power;
+export const ability: Record<string, (player: IPlayerState, value: number | number[]) => void> = {
+  incraseAttackPower: (player, power) => {
+    if (typeof power === 'number') player.combat += power;
   },
 
-  incraseAuthority: (player: IPlayerState, count: number) => {
+  incraseAuthority: (player, count) => {
     // увеличиваем authority на count
-    player.authority += count;
+    if (typeof count === 'number') player.authority += count;
   },
 
-  incraseCoins: (player: IPlayerState, count: number) => {
+  incraseCoins: (player, count) => {
     // увеличиваем количество монет в ходу на count
-    player.tradeCoins += count;
+    if (typeof count === 'number') player.tradeCoins += count;
   },
 
-  drawCards: (player: IPlayerState, count: number) => {
+  drawCards: (player, count) => {
     //Берем карты
-    for (let i = 0; i < count; i++) {
-      drawCard(player);
+    if (typeof count === 'number')
+      for (let i = 0; i < count; i++) {
+        drawCard(player);
+      }
+  },
+
+  destroyBase: (player, targetBaseId) => {
+    // уничтожаем выбранную базу
+    if (typeof targetBaseId === 'number') {
+      const currentBaseArrId = player.playedCards.findIndex((card) => card.id === targetBaseId);
+
+      if (currentBaseArrId === -1) throw new Error(`Can't find base with id: ${targetBaseId} player: ${player.name}`);
+
+      const currentBase = player.playedCards[currentBaseArrId];
+
+      player.discardPile.push(currentBase);
+
+      player.playedCards.splice(currentBaseArrId, 1);
     }
   },
 
-  destroyBase: (player: IPlayerState, targetBaseId: number) => {
-    // уничтожаем выбранную базу
-    const currentBaseArrId = player.playedCards.findIndex((card) => card.id === targetBaseId);
-
-    if (currentBaseArrId === -1) throw new Error(`Can't find base with id: ${targetBaseId} player: ${player.name}`);
-
-    const currentBase = player.playedCards[currentBaseArrId];
-
-    player.discardPile.push(currentBase);
-
-    player.playedCards.splice(currentBaseArrId, 1);
-  },
-
-  discardCards: (player: IPlayerState, count: number) => {
+  setDiscardCards: (player, count) => {
     // Выбранный игрок сбрасывает count карт в discardPile
-    player.countCardsToDiscard = count;
+    // Устанавливаем значение противнику.
+    if (typeof count === 'number') player.countCardsToDiscard = count;
   },
 
-  destroyCard: (player: IPlayerState, cardId: number, fromState?: ICardState[]) => {
+  discardCards: (player, cardsIds) => {
+    if (Array.isArray(cardsIds)) {
+      for (let i = 0; i < cardsIds.length; i++) {
+        const currentCard = player.hand.pop();
+        if (currentCard !== undefined) player.discardPile.push(currentCard);
+      }
+    }
+  },
+
+  discardDrawCards: (player, cardsIds) => {
+    if (Array.isArray(cardsIds) && cardsIds.length > 0) {
+      ability.discardCards(player, cardsIds);
+      ability.drawCards(player, cardsIds);
+    }
+  },
+
+  destroyCard: (player, cardId, fromState?: ICardState[]) => {
     //Уничтожаем карту из руки, стопки сброса или торгового ряда
-    if (fromState) fromState = fromState.filter((card) => cardId !== card.id);
+    if (typeof cardId === 'number' && fromState) fromState = fromState.filter((card) => cardId !== card.id);
   },
 
   // destroyCard2: (player: IPlayerState, cardId: number) => {
 
   // },
-  shipsIncraseAttack: (player: IPlayerState, incrasePower: number) => {
+  shipsIncraseAttack: (player, incrasePower) => {
     /*увеличиваем атаку корбалей на incrasePower*/
-    player.playedCardsToRender.forEach((card) => {
-      if (!isBase(card)) {
-        const targetId = getIdDamageAbility(card);
-        if (targetId !== -1 && Array.isArray(card.primaryAbility)) {
-          (card.primaryAbility[targetId].value as number) += incrasePower;
+    if (typeof incrasePower === 'number') {
+      player.playedCardsToRender.forEach((card) => {
+        if (!isBase(card)) {
+          const targetId = getIdDamageAbility(card);
+          if (targetId !== -1 && Array.isArray(card.primaryAbility)) {
+            (card.primaryAbility[targetId].value as number) += incrasePower;
+          }
         }
-      }
-    });
+      });
+    }
   },
 
-  putTopCards: (player: IPlayerState, count: number) => {
+  putTopCards: (player, count) => {
     //Можете положить следующий купленный корабль(count),поверх вашей стопки сброса
-    for (let i = 0; i < count; i++) {
-      player.drawPile.push(player.discardPile.pop() as ICardState);
-    }
+    if (typeof count === 'number')
+      for (let i = 0; i < count; i++) {
+        player.drawPile.push(player.discardPile.pop() as ICardState);
+      }
   },
 
   // buyFree: (player: IPlayerState, count: number) => {
